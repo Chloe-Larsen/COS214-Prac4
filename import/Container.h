@@ -2,6 +2,7 @@
 #define CONTAINER_H
 
 #include "CargoGroup.h"
+
 class Container : public CargoGroup
 {
 private:

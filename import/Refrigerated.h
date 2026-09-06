@@ -2,17 +2,17 @@
 #define REFRIGERATED_H
 
 #include "ShipmentType.h"
-#include "ShippingUnit.h"
 
 class Refrigerated : public ShipmentType
 {
 private:
-	double targertTemp;
+	double targetTemp;
 
 public:
-	Refrigerated(ShippingUnit *unit);
+	Refrigerated(ShippingUnit *unit, double targetTemp);
 	void logTemperatureTelemetry();
 	void process() override;
+	double estimateShippingCost() override;
 };
 
 #endif

@@ -2,8 +2,10 @@
 #define PARCEL_H
 
 #include "ShippingUnit.h"
-#include "ShippingState.h"
 
+class ShippingState; // forward declaration breaks the Parcel<->ShippingState cycle
+
+// Leaf (also the Context for the State pattern)
 class Parcel : public ShippingUnit
 {
 private:
@@ -17,13 +19,15 @@ public:
 	// Composite
 	double getWeight() override;
 	double estimateShippingCost() override;
+	void process() override;
 
 	// Iterator
 	Inspection *createManifest() override;
-	Inspection *createCustomsAudit() override;		
+	Inspection *createCustomsAudit() override;
 
-	// State Pattern
-	void setState();
+	// State pattern
+	void setState(ShippingState *newState);
+	std::string getStateName();
 	bool dispatch();
 	void flagCustomsHold();
 	void releaseCustomsHold();

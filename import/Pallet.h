@@ -2,6 +2,7 @@
 #define PALLET_H
 
 #include "CargoGroup.h"
+
 class Pallet : public CargoGroup
 {
 private:

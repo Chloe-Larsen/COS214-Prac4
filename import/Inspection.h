@@ -1,8 +1,9 @@
 #ifndef INSPECTION_H
 #define INSPECTION_H
 
-#include "ShippingUnit.h"
+class ShippingUnit; // forward declaration breaks the cycle
 
+// Iterator interface
 class Inspection
 {
 public:

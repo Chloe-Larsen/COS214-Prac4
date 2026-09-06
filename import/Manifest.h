@@ -3,12 +3,14 @@
 
 #include "Inspection.h"
 #include "ShippingUnit.h"
+#include <vector>
 
+// Concrete Iterator: PRE-ORDER traversal of the whole structure.
 class Manifest : public Inspection
 {
 private:
 	ShippingUnit *root;
-	vector<ShippingUnit *> list;
+	std::vector<ShippingUnit *> list;
 	int currentIndex;
 	void populateList(ShippingUnit *unit);
 

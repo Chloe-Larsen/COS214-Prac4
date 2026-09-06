@@ -11,6 +11,7 @@ private:
 public:
 	Insured(ShippingUnit *unit, double value);
 	void process() override;
+	double estimateShippingCost() override;
 };
 
 #endif
