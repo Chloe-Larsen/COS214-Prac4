@@ -6,6 +6,10 @@ Refrigerated::Refrigerated(ShippingUnit *unit, double temp) : ShipmentType(unit)
     std::cout << ColourHelper::GREEN << unit->getType() << "(#" << unit->getID() << ") is now refrigerated at a target temperature of " << temp << "°C." << ColourHelper::RESET << std::endl;
 }
 
+Refrigerated::~Refrigerated()
+{
+}
+
 void Refrigerated::logTemperatureTelemetry()
 {
     std::cout << ColourHelper::GREEN << "refrigerated " << component->getType() << " Unit #" << component->getID() << " maintaining climate at " << targetTemp << "°C." << ColourHelper::RESET << std::endl;
