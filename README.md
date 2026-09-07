@@ -39,19 +39,11 @@ every traversal safe and predictable. Demonstrated live in Scenario 2.
 ## Build \& run
 
 ```bash
-make            # compile with -Wall -Wextra -pedantic -std=c++11
-make run        # build and run the demonstration
-./taskforge     # run directly
-make clean      # remove build artifacts
-```
-
-## Debugging \& memory (Task 5)
-
-```bash
-make debug      # launch the program under GDB
-make valgrind   # full leak check
-# or directly:
-valgrind --leak-check=full --show-leak-kinds=all ./taskforge
+make or make all    #Compiles all .cpp source files into object files inside of the o/ directory and links them to the final executable taskforge    
+make run            #Compiles the project(if not already done) and immediately executes ./taskforge  
+make clean          #Deletes all compiled object files in o/, the executable taskforge and the .zip archive 
+make valgrind       #Builds the executable taskforge and runs it under Valgrind's Memcheck tool with full leak inspection.
+make zip            #Produces a submission zip which has flatted the include statements and makes all .cpp and.h files, the Makefile, Dockerfile, README, and the resources archive in the same archive
 ```
 
 The final application performs a single clean cascade of deletions from the
@@ -63,9 +55,9 @@ Reproduce the full environment (g++, make, gdb, valgrind) without installing
 anything on the host:
 
 ```bash
-docker build -t taskforge .
-docker run --rm taskforge                 # runs the demonstration
-docker run --rm -it taskforge bash        # shell for gdb / valgrind
+docker build -t taskforge-app .                     #Builds the image
+docker run -it --rm taskforge-app                   #Runs the interactive demonstration
+docker run -it --rm taskforge-app make valgrind     #Run valgrind audit via container
 ```
 
 ## Repository layout

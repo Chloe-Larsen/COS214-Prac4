@@ -39,7 +39,7 @@ void waitForUser()
 
 int main()
 {
-    bool testing = true;
+    bool testing = false;
     printSeparator("Creating composite tree");
 
     Freight *vessel = new Freight(1, 101, "MSC Oscar");

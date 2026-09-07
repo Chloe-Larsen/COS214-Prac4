@@ -1,7 +1,7 @@
 CXX        := g++
 CXXFLAGS   := -std=c++11 -Wall -Wextra -pedantic -Iimport -g
 TARGET     := taskforge
-BUILD_DIR  := obj
+BUILD_DIR  := o
 ZIP_NAME   := StudentNum.zip
 FLAT_DIR   := flat_src
 ROOT_FILES := Makefile main.cpp README.md Dockerfile resources
@@ -26,6 +26,9 @@ $(BUILD_DIR):
 
 run: $(TARGET)
 	./$(TARGET)
+
+valgrind: $(TARGET)
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(TARGET)
 
 zip: clean
 	@echo "Staging flat submission files..."
