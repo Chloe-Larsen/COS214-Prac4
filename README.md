@@ -7,7 +7,7 @@ Gang-of-Four design patterns working together as one running application.
 
 |Name|Student no.|GitHub|
 |-|-|-|
-|*(Chloe)*|25004141|@Chloe-Larsen|
+|*(Chloe)*|*25004141*|@Chloe-Larsen|
 |*(Lee)*|*25019385*|@lee-codes012|
 |*(Jayden)*|*??*|@*Jaytad05*|
 
@@ -74,7 +74,7 @@ docker run --rm -it taskforge bash        # shell for gdb / valgrind
 import/   header files
 src/      implementation files
 main.cpp  demonstration (two runtime scenarios)
-docs/     design portfolio (UML, diagrams, PDF)
+resources/     design portfolio (UML, diagrams, PDF)
 Makefile  build rules
 Dockerfile
 ```
