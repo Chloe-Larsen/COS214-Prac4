@@ -1,7 +1,7 @@
 #include "../import/Insured.h"
 #include <iostream>
 
-Insured::Insured(ShippingUnit *unit, double value) : ShipmentType(unit), declaredValue(value)
+Insured::Insured(ShippingUnit *unit, double value) : ShipmentType(unit, "Insured"), declaredValue(value)
 {
     std::cout << ColourHelper::GREEN << unit->getType() << "(#" << unit->getID() << ") is now insured with a declared value of R" << value << "." << ColourHelper::RESET << std::endl;
 }

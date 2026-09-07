@@ -1,6 +1,6 @@
 #include "../import/ShipmentType.h"
 
-ShipmentType::ShipmentType(ShippingUnit *unit) : ShippingUnit(unit->getID(), unit->getType()), component(unit)
+ShipmentType::ShipmentType(ShippingUnit *unit, std::string type) : ShippingUnit(unit->getID(), type), component(unit)
 {
 }
 

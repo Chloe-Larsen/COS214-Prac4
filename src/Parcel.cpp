@@ -78,7 +78,7 @@ Inspection *Parcel::createCustomsAudit()
 
 void Parcel::process()
 {
-    std::cout  << ColourHelper::YELLOW  << "Parcel #" << this->getID() << " has a weight of " << weight << "kg" << ColourHelper::RESET << std::endl;
+    std::cout << ColourHelper::YELLOW << "Parcel #" << this->getID() << " has a weight of " << weight << "kg" << ColourHelper::RESET << std::endl;
     if (state)
     {
         state->handleProcess(this);
