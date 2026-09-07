@@ -39,7 +39,7 @@ void waitForUser()
 
 int main()
 {
-    bool testing = false;
+    bool testing = true;
     printSeparator("Creating composite tree");
 
     Freight *vessel = new Freight(1, 101, "MSC Oscar");
@@ -185,6 +185,7 @@ int main()
     if (!testing)
         waitForUser();
 
+    delete hazmatFail;
     delete vessel;
     return 0;
 }
