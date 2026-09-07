@@ -9,7 +9,7 @@ Gang-of-Four design patterns working together as one running application.
 |-|-|-|
 |*(Chloe)*|*25004141*|@Chloe-Larsen|
 |*(Lee)*|*25019385*|@lee-codes012|
-|*(Jayden)*|*??*|@*Jaytad05*|
+|*(Jayden)*|*24647897*|@*Jaytad05*|
 
 ## Domain
 
