@@ -11,7 +11,7 @@ private:
 
 public:
 	Refrigerated(ShippingUnit *unit, double temp);
-	~Refrigerated();
+	virtual ~Refrigerated();
 	void logTemperatureTelemetry();
 	void process() override;
 	double estimateShippingCost() override;
