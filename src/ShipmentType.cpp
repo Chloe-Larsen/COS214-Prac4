@@ -2,16 +2,35 @@
 
 ShipmentType::ShipmentType(ShippingUnit *unit)
 {
+    component = unit;
 }
 
 ShipmentType::~ShipmentType()
 {
+    delete component;
 }
 
-Inspection *createManifest()
+double ShipmentType::getWeight()
 {
+    return component->getWeight();
 }
 
-Inspection *createCustomsAudit()
+double ShipmentType::estimateShippingCost()
 {
+    return component->estimateShippingCost();
+}
+
+void ShipmentType::process()
+{
+    component->process();
+}
+
+Inspection *ShipmentType::createManifest()
+{
+    return component->createManifest();
+}
+
+Inspection *ShipmentType::createCustomsAudit()
+{
+    return component->createCustomsAudit();
 }

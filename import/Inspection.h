@@ -1,7 +1,7 @@
 #ifndef INSPECTION_H
 #define INSPECTION_H
 
-#include "ShippingUnit.h"
+class ShippingUnit;
 
 class Inspection
 {

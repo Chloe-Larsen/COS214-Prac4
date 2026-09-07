@@ -13,7 +13,7 @@ private:
 	void populateList(ShippingUnit *unit);
 
 public:
-	CustomsAudit(ShippingUnit *root);
+	CustomsAudit(ShippingUnit *rootNode);
 	~CustomsAudit();
 	void first() override;
 	void next() override;

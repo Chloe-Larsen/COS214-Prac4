@@ -11,7 +11,7 @@ public:
     bool dispatch(Parcel *parcel) override;
     void placeOnHold(Parcel *parcel) override;
     void releaseHold(Parcel *parcel) override;
-    string getStateName() override;
+    std::string getStateName() override;
 };
 
 #endif

@@ -23,7 +23,8 @@ public:
 	Inspection *createCustomsAudit() override;		
 
 	// State Pattern
-	void setState();
+	void handleProcess();
+	void setState(ShippingState *newState);
 	bool dispatch();
 	void flagCustomsHold();
 	void releaseCustomsHold();
