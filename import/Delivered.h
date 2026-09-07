@@ -2,6 +2,7 @@
 #define DELIVERED_H
 
 #include "ShippingState.h"
+#include "Parcel.h"
 
 class Delivered : public ShippingState
 {

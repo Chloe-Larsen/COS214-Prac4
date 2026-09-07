@@ -6,11 +6,11 @@ class Freight : public CargoGroup
 {
 private:
 	int shipId;
-	string shipName;
+	std::string shipName;
 
 public:
-	Freight(int id, int shipId, string shipName);
-	~Freight();
+	Freight(int id, int shipId, std::string shipName);
+	virtual ~Freight();
 };
 
 #endif

@@ -3,40 +3,57 @@
 #include "../import/Manifest.h"
 #include "../import/CustomsAudit.h"
 
-Parcel::Parcel(int id, double weight) : ShippingUnit(id), weight(weight)
+Parcel::Parcel(int id, double weight) : ShippingUnit(id, "Parcel"), weight(weight)
 {
+    std::cout << ColourHelper::YELLOW << "Parcel (#" << id << ") has been created. It has a weight of " << weight << "kg" << ColourHelper::RESET << std::endl;
     state = new Booked();
 }
 
 Parcel::~Parcel()
 {
-    delete state;
+    if (state != nullptr)
+    {
+        delete state;
+        state = nullptr;
+    }
 }
 
 void Parcel::setState(ShippingState *newState)
 {
-    delete state;
-    state = newState;
+    if (state == nullptr)
+        return;
+    delete this->state;
+    this->state = newState;
 }
 
-void Parcel::handleProcess()
+ShippingState *Parcel::getState()
 {
-    state->handleProcess(this);
+    return state;
 }
 
 bool Parcel::dispatch()
 {
-    return state->dispatch(this);
+    if (state)
+    {
+        return state->dispatch(this);
+    }
+    return false;
 }
 
 void Parcel::flagCustomsHold()
 {
-    state->placeOnHold(this);
+    if (state)
+    {
+        state->placeOnHold(this);
+    }
 }
 
 void Parcel::releaseCustomsHold()
 {
-    state->releaseHold(this);
+    if (state)
+    {
+        state->releaseHold(this);
+    }
 }
 
 double Parcel::getWeight()
@@ -57,4 +74,13 @@ Inspection *Parcel::createManifest()
 Inspection *Parcel::createCustomsAudit()
 {
     return new CustomsAudit(this);
+}
+
+void Parcel::process()
+{
+    std::cout  << ColourHelper::YELLOW  << "Parcel #" << this->getID() << " has a weight of " << weight << "kg" << ColourHelper::RESET << std::endl;
+    if (state)
+    {
+        state->handleProcess(this);
+    }
 }

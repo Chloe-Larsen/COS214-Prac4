@@ -8,26 +8,30 @@ CustomsHold::CustomsHold() : ShippingState()
 }
 void CustomsHold::handleProcess(Parcel *parcel)
 {
-    std::cout << "Parcel cannot be processed while on customs hold." << std::endl;
+    std::cout << ColourHelper::B_BLUE << "State: CustomsHold " << ColourHelper::RESET << "\nUnit #" << parcel->getID() << " is locked in customs hold. Inspection required." << std::endl;
 }
 
 bool CustomsHold::dispatch(Parcel *parcel)
 {
-    std::cout << "Parcel cannot be dispatched while on customs hold." << std::endl;
+    std::cout << ColourHelper::B_BLUE << "State: CustomsHold " << ColourHelper::RESET << "\nCannot dispatch unit #" << parcel->getID() << " currently on customs hold." << std::endl;
     return false;
 }
 
 void CustomsHold::placeOnHold(Parcel *parcel)
 {
-    std::cout << "Parcel is already on customs hold." << std::endl;
+    std::cout << ColourHelper::B_BLUE << "State: CustomsHold " << ColourHelper::RESET << "\nUnit #" << parcel->getID() << " currently on customs hold." << std::endl;
 }
 
 void CustomsHold::releaseHold(Parcel *parcel)
 {
-    parcel->setState(new ClearedCustoms());
+    if (parcel)
+    {
+        parcel->setState(new ClearedCustoms());
+    }
+    std::cout << ColourHelper::B_BLUE << "State: CustomsHold " << ColourHelper::RESET << " -> " << ColourHelper::B_RED << "ClearedCustoms " << ColourHelper::RESET << "\nCustoms clearance granted for unit #" << parcel->getID() << ". Hold released." << std::endl;
 }
 
 std::string CustomsHold::getStateName()
 {
-    return "Customs Hold";
+    return "CustomsHold";
 }

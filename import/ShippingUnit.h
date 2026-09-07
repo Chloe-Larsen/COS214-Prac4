@@ -17,7 +17,7 @@ private:
 	std::string type;
 
 public:
-	ShippingUnit(int id);
+	ShippingUnit(int id, std::string type);
 	ShippingUnit();
 	virtual ~ShippingUnit();
 	int getID();

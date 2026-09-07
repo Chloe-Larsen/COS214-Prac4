@@ -1,39 +1,44 @@
 #include "../import/Manifest.h"
 #include "../import/CargoGroup.h"
+#include "../import/ShipmentType.h"
 
-Manifest::Manifest(ShippingUnit *rootNode) : Inspection()
+Manifest::Manifest(ShippingUnit *root) : Inspection(), root(root), currentIndex(0)
 {
-    root = rootNode;
-    currentIndex = 0;
-    populateList(rootNode);
+    first();
 }
 
 void Manifest::populateList(ShippingUnit *unit)
 {
-    if (unit == nullptr)
-    {
+    if (!unit)
         return;
-    }
-
     list.push_back(unit);
 
     CargoGroup *group = dynamic_cast<CargoGroup *>(unit);
-
-    if (group != nullptr)
+    if (group)
     {
-        for (int i = 0; i < group->getChildCount(); i++)
+        for (ShippingUnit *child : group->getChildren())
         {
-            populateList(group->getChildAt(i));
+            populateList(child);
         }
+        return;
+    }
+
+    ShipmentType *decorator = dynamic_cast<ShipmentType *>(unit);
+    if (decorator)
+    {
+        populateList(decorator->getComponent());
     }
 }
 
 Manifest::~Manifest()
 {
+    list.clear();
 }
 
 void Manifest::first()
 {
+    list.clear();
+    populateList(root);
     currentIndex = 0;
 }
 
@@ -41,13 +46,13 @@ void Manifest::next()
 {
     if (!isDone())
     {
-        currentIndex++;
+        ++currentIndex;
     }
 }
 
 bool Manifest::isDone()
 {
-    return currentIndex >= static_cast<int>(list.size());
+    return currentIndex >= list.size();
 }
 
 ShippingUnit *Manifest::currentItem()
@@ -56,6 +61,5 @@ ShippingUnit *Manifest::currentItem()
     {
         return nullptr;
     }
-
     return list[currentIndex];
 }

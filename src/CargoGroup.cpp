@@ -1,18 +1,17 @@
 #include "../import/CargoGroup.h"
-#include "../import/CargoGroup.h"
+#include <algorithm>
 #include "../import/Manifest.h"
 #include "../import/CustomsAudit.h"
 
-CargoGroup::CargoGroup(int id) : ShippingUnit(id)
+CargoGroup::CargoGroup(int id, std::string type) : ShippingUnit(id, type)
 {
 }
 
 CargoGroup::~CargoGroup()
 {
     for (ShippingUnit *child : children)
-    {
         delete child;
-    }
+    children.clear();
 }
 
 void CargoGroup::add(ShippingUnit *unit)
@@ -20,21 +19,13 @@ void CargoGroup::add(ShippingUnit *unit)
     if (unit != nullptr)
     {
         children.push_back(unit);
+        std::cout << ColourHelper::YELLOW << "\t\t" << unit->getType() << "(id #" << unit->getID() << ") is now a part of " << this->getType() << "(id #" << this->getID() << ")" << ColourHelper::RESET << std::endl;
     }
 }
 
 void CargoGroup::remove(ShippingUnit *unit)
 {
-    for (vector<ShippingUnit *>::iterator it = children.begin();
-         it != children.end();
-         ++it)
-    {
-        if (*it == unit)
-        {
-            children.erase(it);
-            return;
-        }
-    }
+    children.erase(std::remove(children.begin(), children.end(), unit), children.end());
 }
 
 ShippingUnit *CargoGroup::getChild(int id)
@@ -46,23 +37,16 @@ ShippingUnit *CargoGroup::getChild(int id)
             return child;
         }
     }
-
     return nullptr;
 }
 
-int CargoGroup::getChildCount()
+void CargoGroup::process()
 {
-    return children.size();
-}
-
-ShippingUnit *CargoGroup::getChildAt(int index)
-{
-    if (index < 0 || index >= static_cast<int>(children.size()))
+    std::cout << ColourHelper::YELLOW << "CargoGroup #" << this->getID() << " (" << this->getType() << ") Processing " << children.size() << " contained units..." << ColourHelper::RESET << std::endl;
+    for (ShippingUnit *child : children)
     {
-        return nullptr;
+        child->process();
     }
-
-    return children[index];
 }
 
 double CargoGroup::getWeight()
@@ -97,4 +81,9 @@ Inspection *CargoGroup::createManifest()
 Inspection *CargoGroup::createCustomsAudit()
 {
     return new CustomsAudit(this);
+}
+
+std::vector<ShippingUnit *> CargoGroup::getChildren()
+{
+    return children;
 }

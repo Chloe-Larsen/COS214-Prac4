@@ -6,15 +6,15 @@
 class CargoGroup : public ShippingUnit
 {
 private:
-	vector<ShippingUnit *> children;
+	std::vector<ShippingUnit *> children;
 
 public:
-	CargoGroup(int id);
+	CargoGroup(int id, std::string type);
 	virtual ~CargoGroup();
 	virtual void add(ShippingUnit *unit);
 	void remove(ShippingUnit *unit);
 	ShippingUnit *getChild(int id);
-	vector<ShippingUnit *> getChildren();	
+	std::vector<ShippingUnit *> getChildren();	
 
 	// Composite
 	double getWeight() override;

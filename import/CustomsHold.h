@@ -2,7 +2,6 @@
 #define CUSTOMSHOLD_H
 
 #include "ShippingState.h"
-#include "ClearedCustoms.h"
 
 class CustomsHold : public ShippingState
 {

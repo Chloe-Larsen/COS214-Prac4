@@ -6,12 +6,12 @@
 class Hazmat : public ShipmentType
 {
 private:
-	string hazmatClass;
+	std::string hazmatClass;
 	bool placarded;
-	vector<string> validHazmatCodes;
+	std::vector<string> validHazmatCodes;
 
 public:
-	Hazmat(ShippingUnit *unit, string code, bool isPlacarded);
+	Hazmat(ShippingUnit *unit, std::string code, bool isPlacarded);
 	bool verifyPlacarding();
 	void process() override;	
 	double estimateShippingCost() override;	
