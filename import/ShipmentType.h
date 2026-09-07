@@ -13,6 +13,11 @@ public:
 	//Iterator
 	Inspection* createManifest() override;
 	Inspection* createCustomsAudit() override;
+
+	//Decorator overides
+	double getWeight() override;
+	double estimateShippingCost() override;
+	void process() override;
 };
 
 #endif

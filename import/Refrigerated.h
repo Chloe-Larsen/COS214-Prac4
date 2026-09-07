@@ -7,10 +7,11 @@
 class Refrigerated : public ShipmentType
 {
 private:
-	double targertTemp;
+	double targetTemp;
 
 public:
 	Refrigerated(ShippingUnit *unit);
+	~Refrigerated();
 	void logTemperatureTelemetry();
 	void process() override;
 };

@@ -14,4 +14,5 @@ ShippingUnit::~ShippingUnit()
 
 int ShippingUnit::getID()
 {
+    return id;
 }

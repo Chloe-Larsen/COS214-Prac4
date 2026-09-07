@@ -15,6 +15,9 @@ public:
 	void remove(ShippingUnit *unit);
 	ShippingUnit *getChild(int id);
 
+	int getChildCount();
+	ShippingUnit *getChildAt(int index);
+
 	// Composite
 	double getWeight() override;
 	double estimateShippingCost() override;
