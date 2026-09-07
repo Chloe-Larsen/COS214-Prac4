@@ -6,6 +6,7 @@ class ShippingUnit;
 class Inspection
 {
 public:
+	Inspection();
 	virtual ~Inspection();
 	virtual void first() = 0;
 	virtual void next() = 0;

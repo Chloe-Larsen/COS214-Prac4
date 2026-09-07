@@ -22,6 +22,8 @@ public:
 	Inspection *createManifest() override;
 	Inspection *createCustomsAudit() override;		
 
+	void process() override;
+
 	// State Pattern
 	void handleProcess();
 	void setState(ShippingState *newState);

@@ -2,6 +2,7 @@
 #define BOOKED_H
 
 #include "ShippingState.h"
+#include "InTransit.h"
 
 class Booked : public ShippingState
 {
