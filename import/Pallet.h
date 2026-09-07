@@ -10,6 +10,7 @@ private:
 public:
 	Pallet(int id, double maxCapacity);
 	~Pallet();
+	void add(ShippingUnit* unit) override;
 };
 
 #endif

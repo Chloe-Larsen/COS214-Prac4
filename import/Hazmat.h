@@ -13,7 +13,8 @@ private:
 public:
 	Hazmat(ShippingUnit *unit, string code, bool isPlacarded);
 	bool verifyPlacarding();
-	void process() override;		
+	void process() override;	
+	double estimateShippingCost() override;	
 };
 
 #endif

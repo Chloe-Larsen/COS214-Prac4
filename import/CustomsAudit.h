@@ -3,6 +3,7 @@
 
 #include "Inspection.h"
 #include "ShippingUnit.h"
+#include "ShippingState.h"
 
 class CustomsAudit : public Inspection
 {
@@ -13,7 +14,7 @@ private:
 	void populateList(ShippingUnit *unit);
 
 public:
-	CustomsAudit(ShippingUnit *rootNode);
+	CustomsAudit(ShippingUnit *root);
 	~CustomsAudit();
 	void first() override;
 	void next() override;

@@ -13,7 +13,7 @@ private:
 	void populateList(ShippingUnit *unit);
 
 public:
-	Manifest(ShippingUnit *rootNode);
+	Manifest(ShippingUnit *root);
 	~Manifest();
 
 	void first() override;

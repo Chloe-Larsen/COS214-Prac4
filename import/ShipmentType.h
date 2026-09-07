@@ -18,6 +18,7 @@ public:
 	double getWeight() override;
 	double estimateShippingCost() override;
 	void process() override;
+	ShippingUnit* getComponent();
 };
 
 #endif

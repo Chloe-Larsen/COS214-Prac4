@@ -2,6 +2,8 @@
 #define INTRANSIT_H
 
 #include "ShippingState.h"
+#include "Delivered.h"
+#include "CustomsHold.h"
 
 class InTransit : public ShippingState
 {

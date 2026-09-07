@@ -11,16 +11,16 @@ private:
 public:
 	CargoGroup(int id);
 	virtual ~CargoGroup();
-	void add(ShippingUnit *unit);
+	virtual void add(ShippingUnit *unit);
 	void remove(ShippingUnit *unit);
 	ShippingUnit *getChild(int id);
-
-	int getChildCount();
-	ShippingUnit *getChildAt(int index);
+	vector<ShippingUnit *> getChildren();	
 
 	// Composite
 	double getWeight() override;
 	double estimateShippingCost() override;
+
+	void process() override;
 
 	// Iterator
 	Inspection *createManifest() override;

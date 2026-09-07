@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "Inspection.h"
+#include "ColourHelper.h"
 
 using namespace std;
 
@@ -13,12 +14,14 @@ class ShippingUnit
 {
 private:
 	int id;
+	std::string type;
 
 public:
 	ShippingUnit(int id);
 	ShippingUnit();
 	virtual ~ShippingUnit();
 	int getID();
+	std::string getType();
 
 	// Composite pattern
 	virtual double getWeight() = 0;

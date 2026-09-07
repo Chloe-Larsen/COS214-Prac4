@@ -14,6 +14,7 @@ public:
 	~Refrigerated();
 	void logTemperatureTelemetry();
 	void process() override;
+	double estimateShippingCost() override;
 };
 
 #endif
