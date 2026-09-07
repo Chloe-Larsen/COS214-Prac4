@@ -1,7 +1,7 @@
 #include "../import/Refrigerated.h"
 #include <iostream>
 
-Refrigerated::Refrigerated(ShippingUnit *unit, double temp) : ShipmentType(unit), targetTemp(temp)
+Refrigerated::Refrigerated(ShippingUnit *unit, double temp) : ShipmentType(unit, "Refrigerated"), targetTemp(temp)
 {
     std::cout << ColourHelper::GREEN << unit->getType() << "(#" << unit->getID() << ") is now refrigerated at a target temperature of " << temp << "°C." << ColourHelper::RESET << std::endl;
 }

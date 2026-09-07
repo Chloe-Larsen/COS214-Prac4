@@ -2,13 +2,13 @@
 #include "../import/Parcel.h"
 #include <algorithm>
 
-Hazmat::Hazmat(ShippingUnit *unit, string code, bool isPlacarded) : ShipmentType(unit), hazmatClass(code), placarded(isPlacarded)
+Hazmat::Hazmat(ShippingUnit *unit, string code, bool isPlacarded) : ShipmentType(unit, "Hazmat"), hazmatClass(code), placarded(isPlacarded)
 {
     validHazmatCodes.push_back("UN1993");
     validHazmatCodes.push_back("UN1203");
     validHazmatCodes.push_back("UN2794");
     validHazmatCodes.push_back("UN1075");
-
+    validHazmatCodes.push_back("UN3480");
     std::cout << ColourHelper::GREEN << unit->getType() << "(#" << unit->getID() << ") is now placarded to be of hazmat class of " << code << "." << ColourHelper::RESET << std::endl;
 }
 
