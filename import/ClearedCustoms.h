@@ -2,8 +2,6 @@
 #define CLEAREDCUSTOMS_H
 
 #include "ShippingState.h"
-#include "InTransit.h"
-#include "CustomsHold.h"
 
 class ClearedCustoms : public ShippingState
 {

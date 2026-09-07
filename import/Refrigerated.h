@@ -10,7 +10,7 @@ private:
 	double targetTemp;
 
 public:
-	Refrigerated(ShippingUnit *unit);
+	Refrigerated(ShippingUnit *unit, double temp);
 	~Refrigerated();
 	void logTemperatureTelemetry();
 	void process() override;

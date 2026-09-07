@@ -8,23 +8,27 @@ Booked::Booked() : ShippingState()
 }
 void Booked::handleProcess(Parcel *parcel)
 {
-    std::cout << "Parcel must be dispatched before it can be processed." << std::endl;
+    std::cout << ColourHelper::B_GREEN << "State: Booked. " << ColourHelper::RESET << "\nUnit(#" << parcel->getID() << ") registered in manifest. Ready to dispatch!" << std::endl;
 }
 
 bool Booked::dispatch(Parcel *parcel)
 {
-    parcel->setState(new InTransit());
+    if (parcel)
+    {
+        parcel->setState(new InTransit());
+    }
+    std::cout << ColourHelper::B_GREEN << "State: Booked. " << ColourHelper::RESET << "-> " << ColourHelper::B_YELLOW << "InTransit " << ColourHelper::RESET << "\nDispatching unit(#" << parcel->getID() << ") into transit." << std::endl;
     return true;
 }
 
 void Booked::placeOnHold(Parcel *parcel)
 {
-    std::cout << "Parcel cannot be placed on customs hold before dispatch." << std::endl;
+    std::cout << ColourHelper::B_GREEN << "State: Booked. " << ColourHelper::RESET << "\nUnit(#" << parcel->getID() << ") is not in transit; cannot flag customs hold yet." << std::endl;
 }
 
 void Booked::releaseHold(Parcel *parcel)
 {
-    std::cout << "Parcel is not on customs hold." << std::endl;
+    std::cout << ColourHelper::B_GREEN << "State: Booked. " << ColourHelper::RESET << "\nUnit(#" << parcel->getID() << ") is not on hold." << std::endl;
 }
 
 std::string Booked::getStateName()

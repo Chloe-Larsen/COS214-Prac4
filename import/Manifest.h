@@ -9,7 +9,7 @@ class Manifest : public Inspection
 private:
 	ShippingUnit *root;
 	vector<ShippingUnit *> list;
-	int currentIndex;
+	size_t currentIndex;
 	void populateList(ShippingUnit *unit);
 
 public:

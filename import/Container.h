@@ -9,7 +9,7 @@ private:
 
 public:
 	Container(int id, int containerId);
-	~Container();
+	virtual ~Container();
 };
 
 #endif

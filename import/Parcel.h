@@ -24,9 +24,9 @@ public:
 
 	void process() override;
 
-	// State Pattern
-	void handleProcess();
+	// State Pattern	
 	void setState(ShippingState *newState);
+	ShippingState* getState();
 	bool dispatch();
 	void flagCustomsHold();
 	void releaseCustomsHold();

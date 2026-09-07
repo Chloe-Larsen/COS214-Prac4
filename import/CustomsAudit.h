@@ -9,8 +9,8 @@ class CustomsAudit : public Inspection
 {
 private:
 	ShippingUnit *root;
-	vector<ShippingUnit *> list;
-	int currentIndex;
+	std::vector<ShippingUnit *> list;
+	size_t currentIndex;
 	void populateList(ShippingUnit *unit);
 
 public:
